@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
     Business receivedBusinessInfo;
+    private MyApplicationData appState;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class DetailViewActivity extends Activity {
 
     public void updateBusiness(View v){
         //TODO: Update contact funcionality
+
+        
     }
 
     public void eraseBusiness(View v)
