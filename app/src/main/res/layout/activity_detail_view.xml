@@ -86,6 +86,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateButton" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="322dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        android:text="Business data formatting rules must be followed or else the business will not be updated"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteButton" />
 
 
 </android.support.constraint.ConstraintLayout>

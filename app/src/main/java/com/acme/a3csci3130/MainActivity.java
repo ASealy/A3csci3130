@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
 
     private ListView businessListView;
-    private FirebaseListAdapter<Business> firebaseAdapter;
+    public static FirebaseListAdapter<Business> firebaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
