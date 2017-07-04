@@ -1,6 +1,7 @@
 package com.acme.a3csci3130;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +12,7 @@ import java.util.Map;
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
-    Business receivedBusinessInfo;
+    private Business receivedBusinessInfo;
     private MyApplicationData appState;
 
 
@@ -37,13 +38,23 @@ public class DetailViewActivity extends Activity {
     }
 
     public void updateBusiness(View v){
-        //TODO: Update contact funcionality
 
-        
+        appState = ((MyApplicationData) getApplicationContext());
+        String name = nameField.getText().toString();
+        String businessNumber = businessNumberField.getText().toString();
+        String primaryBusiness = primaryBusinessField.getText().toString();
+        String address = addressField.getText().toString();
+        String province = provinceField.getText().toString();
+        Business b = new Business(receivedBusinessInfo.uid, name, businessNumber, primaryBusiness, address, province);
+        appState.firebaseReference.child(receivedBusinessInfo.uid).setValue(b);
+        finish();
+
     }
 
-    public void eraseBusiness(View v)
-    {
-        //TODO: Erase contact functionality
+    public void eraseBusiness(View v){
+        appState = ((MyApplicationData) getApplicationContext());
+        appState.firebaseReference.child(receivedBusinessInfo.uid).removeValue();
+        finish();
+
     }
 }
