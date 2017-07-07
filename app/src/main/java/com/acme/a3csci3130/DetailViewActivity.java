@@ -9,6 +9,10 @@ import android.widget.EditText;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Andrew Sealy
+ * Detail activity for detailed view of business when user clicks on a business
+ */
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
@@ -16,6 +20,10 @@ public class DetailViewActivity extends Activity {
     private MyApplicationData appState;
 
 
+    /**
+     * create business function
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,10 @@ public class DetailViewActivity extends Activity {
         }
     }
 
+    /**
+     * update function
+     * @param v
+     */
     public void updateBusiness(View v){
 
         appState = ((MyApplicationData) getApplicationContext());
@@ -51,6 +63,10 @@ public class DetailViewActivity extends Activity {
 
     }
 
+    /**
+     * delete function
+     * @param v
+     */
     public void eraseBusiness(View v){
         appState = ((MyApplicationData) getApplicationContext());
         appState.firebaseReference.child(receivedBusinessInfo.uid).removeValue();

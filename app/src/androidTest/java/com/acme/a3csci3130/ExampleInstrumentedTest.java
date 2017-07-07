@@ -26,8 +26,8 @@ import static org.hamcrest.core.IsAnything.anything;
 import static org.junit.Assert.*;
 
 /**
+ * @author Andrew Sealy
  * Instrumentation test, which will execute on an Android device.
- *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
@@ -36,6 +36,10 @@ public class ExampleInstrumentedTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
+    /**
+     * create business test
+     * @throws Exception
+     */
     @Test
     public void createBusinessTest() throws Exception{
 
@@ -54,6 +58,10 @@ public class ExampleInstrumentedTest {
 
     }
 
+    /**
+     * update test
+     * @throws Exception
+     */
     @Test
     public void updateBusinessTest() throws Exception{
         Thread.sleep(3000);
@@ -72,6 +80,10 @@ public class ExampleInstrumentedTest {
 
     }
 
+    /**
+     * delete test
+     * @throws Exception
+     */
     @Test
     public void deleteBusinessTest() throws Exception{
         Thread.sleep(5000);

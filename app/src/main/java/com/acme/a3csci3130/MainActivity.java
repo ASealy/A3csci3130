@@ -11,6 +11,12 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ *
+ * @author Andrew Sealy
+ * Main activity for firebase set up and listview instantiation
+ *
+ */
 public class MainActivity extends Activity {
 
 
@@ -58,6 +64,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    /**
+     * Method for showing a detail view for a business
+     *
+     * @param b - business instance
+     */
     private void showDetailView(Business b)
     {
         Intent intent = new Intent(this, DetailViewActivity.class);

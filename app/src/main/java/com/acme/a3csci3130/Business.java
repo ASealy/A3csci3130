@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class that defines how the data will be stored in the
- * Firebase databse. This is converted to a JSON format
+ * @author Andrew Sealy
+ * Business class containing business attributes
  */
 
 public class Business implements Serializable {
@@ -25,6 +25,16 @@ public class Business implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
+    /**
+     * Constructor
+     * @param uid -
+     * @param name - required, 2-48 characters
+     * @param businessNumber - required, 9-digit number
+     * @param primaryBusiness - required, {Fisher, Distributor, Processor, Fish Monger}
+     * @param address - <50 characters
+     * @param province - {AB, BC, MB, NB, NL, NS, NT, NU, ON, PE, QC, SK, YT, “ “}
+     *
+     */
     public Business(String uid, String name, String businessNumber, String primaryBusiness, String address, String province){
         this.uid = uid;
         this.name = name;

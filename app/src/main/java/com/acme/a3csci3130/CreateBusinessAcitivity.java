@@ -6,12 +6,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * @author Andrew Sealy
+ * Create business activity which creates new business in firebase
+ */
+
 public class CreateBusinessAcitivity extends Activity {
 
     private Button submitButton;
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
     private MyApplicationData appState;
 
+    /**
+     * Method for creating activity page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +36,9 @@ public class CreateBusinessAcitivity extends Activity {
         provinceField = (EditText) findViewById(R.id.province);
     }
 
+    /**
+     * Method to create business in firebase
+     */
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String BusinessID = appState.firebaseReference.push().getKey();
