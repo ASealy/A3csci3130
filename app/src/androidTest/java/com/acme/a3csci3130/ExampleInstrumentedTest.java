@@ -20,6 +20,7 @@ import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsAnything.anything;
 import static org.junit.Assert.*;
@@ -55,7 +56,7 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void updateBusinessTest() throws Exception{
-
+        Thread.sleep(3000);
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
         onView(withId(R.id.name)).perform(clearText(),typeText("My Business"),closeSoftKeyboard());
         onView(withId(R.id.businessNumber)).perform(clearText(),typeText("123456789"),closeSoftKeyboard());
@@ -73,15 +74,20 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void deleteBusinessTest() throws Exception{
-        int before=MainActivity.firebaseAdapter.getCount();
-        onView(withId(R.id.listView))
-                .perform(closeSoftKeyboard())
-                .perform(click());
+        Thread.sleep(5000);
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
+        String before;
+        if(MainActivity.firebaseAdapter.isEmpty()) before="emptyBefore";
+        else before=MainActivity.firebaseAdapter.getItem(0).uid;
 
         onView(withId(R.id.deleteButton)).perform(click());
-        //Assert.assertEquals((int)MainActivity.firebaseAdapter.getCount(),before);
-        Assert.assertEquals(1,1);
+
+        String after;
+        if(MainActivity.firebaseAdapter.isEmpty()) after="emptyAfter";
+        else after=MainActivity.firebaseAdapter.getItem(0).uid;
+
+        Assert.assertNotEquals(before,after);
 
     }
 
